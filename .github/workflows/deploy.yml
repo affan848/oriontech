@@ -29,13 +29,12 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-          cache-dependency-path: './orion-tech-portfolio-site/package-lock.json'
       
       - name: Install dependencies
-        run: cd orion-tech-portfolio-site && npm install
+        run: npm install
       
       - name: Build
-        run: cd orion-tech-portfolio-site && npm run build
+        run: npm run build
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -43,7 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './orion-tech-portfolio-site/dist'
+          path: './dist'
       
       - name: Deploy to GitHub Pages
         id: deployment
